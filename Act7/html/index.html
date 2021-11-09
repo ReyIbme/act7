@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='../css/estilo.css'>
+    <title>Directivas de VUE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg320mUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <h1>Encuesta</h1>
+    </header>
+    <div id="app" class="container">
+        {{ $data}}
+        <!--required-->
+        <h4>¿Eres ELF(nombre del fandom de Super Junior)??</h4>
+        <div class="radio">
+            <label class="radio-inline">
+                <input type="radio" v-model="vue.exp" :value="true">Si
+            </label>
+            <label class="radio-inline">
+                <input type="radio" v-model="vue.exp" :value="false">No 
+            </label>
+        </div>
+        <template v-if="vue.exp">
+
+
+        <!--si la respuesta es si-->
+        <div class="form-group">
+            <label for="vue_years">Desde hace cuanto tiempo te consideras ELF?</label>
+                <input type="number" v-model="vue.years" class="form-control">
+        </div>
+        <!--si tienes un año de experiencia o menos-->
+        <div v-if="vue.years < 2" class="form-group">
+            <label for="vue_years">Que te motivo a stanear a la banda?</label>
+            <textarea v-model="vue.description" class="form-control" rows="4"></textarea>
+        </div>
+        <!--si ha trabajado dos años o mas-->
+        <div v-else class="form-group">
+            <label for="vue_years">¡Cómo ha sido tu experiencia como K-poper siendo ELF?</label>
+            <textarea v-model="vue.description" class="form-control" rows="4"></textarea>
+        </div>
+    </template>
+        <footer class="footer">
+            <p>Gracias Por Votar</p>
+        </footer>
+    </div>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>-->
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                vue: {
+                    exp: null,
+                    years: 0,
+                    description: ''
+                }
+            }
+        })
+    </script>
+</body>
+<footer>By Rey IBME</footer>
+
+</html>

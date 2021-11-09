@@ -1,0 +1,18 @@
+body {
+    background: url(../image/fondo5.jpg) center fixed;
+    background-size: 25% 35%;
+}
+
+div,
+h1 {
+    background-color: rgb(36, 81, 230);
+    align-content: center;
+    text-align: center;
+    font-style: italic;
+}
+
+footer {
+    background-color: rgb(26, 198, 241);
+    height: 100px;
+    text-align: center;
+}
